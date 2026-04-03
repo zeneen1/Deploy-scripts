@@ -1,7 +1,9 @@
 #!/bin/bash
+BRANCH=${1:-main}
 
-echo "Pulling latest code ..."
-git pull origin feature/assign-work
+echo "Pulling latest code from $BRANCH..."
+git checkout $BRANCH
+git pull origin $BRANCH
 
 echo "Building project ..."
 mvn clean package -DskipTests
